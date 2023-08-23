@@ -1,0 +1,44 @@
+.app-container {
+  width: 100vw;
+  height: 1090px;
+  background: no-repeat center/auto 100% url('./assets/background.png');
+  display: grid;
+  place-items: center;
+}
+/* .app-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 1440px;
+  height: 1090px;
+  max-height: 1090px;
+  border-radius: 12px;
+  background: rgba(96, 102, 208, 0.7);
+  margin: 0 auto;
+}
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: 49.08%;
+  left: 55.35%;
+  width: 1130px;
+  height: 914px;
+  transform: rotate(-65.136deg);
+  transform-origin: 0 0;
+  flex-shrink: 0;
+  border-radius: 33px;
+  background: rgba(96, 102, 208, 0.7);
+}
+
+.app-container::after {
+  content: '';
+  position: absolute;
+  width: 914px;
+  height: 1130px;
+  top: 35.04%;
+  left: 4.16%;
+  transform: rotate(calc(90deg - 65.136deg));
+  transform-origin: 0% 0%;
+  flex-shrink: 0;
+  border-radius: 33px;
+  background: rgba(96, 102, 208, 0.7);
+} */

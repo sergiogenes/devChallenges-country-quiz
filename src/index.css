@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-1: rgba(47, 46, 65, 1);
+  --color-2: rgba(242, 242, 242, 1);
+  --color-3: rgba(63, 61, 86, 1);
+  --color-4: rgba(249, 168, 38, 1);
+  --color-5: rgba(255, 255, 255, 1);
+  --color-6: rgba(96, 102, 208, 0.8);
+  --color-7: rgba(96, 102, 208, 0.7);
+  --color-8: rgba(255, 185, 185, 1);
+  --color-9: rgba(87, 90, 137, 1);
+  --color-10: rgba(0, 0, 0, 1);
+  --color-11: rgba(47, 82, 123, 1);
+  --color-12: rgba(87, 184, 148, 1);
+  --color-13: rgba(189, 189, 189, 1);
+}
+
+body {
+  background-color: var(--color-10);
+}
