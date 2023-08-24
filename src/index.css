@@ -1,11 +1,3 @@
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
   --color-1: rgba(47, 46, 65, 1);
   --color-2: rgba(242, 242, 242, 1);
@@ -22,6 +14,16 @@
   --color-13: rgba(189, 189, 189, 1);
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Poppins', sans-serif;
+}
 body {
   background-color: var(--color-10);
 }

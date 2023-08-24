@@ -1,9 +1,11 @@
 .app-container {
   width: 100vw;
+  max-width: 1440px;
   height: 1090px;
   background: no-repeat center/auto 100% url('./assets/background.png');
-  display: grid;
-  place-items: center;
+  margin: 0 auto;
+  border: 1px solid transparent;
+  border-radius: 12px;
 }
 /* .app-container {
   position: relative;
