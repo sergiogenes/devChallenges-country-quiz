@@ -1,0 +1,72 @@
+#result-card {
+  margin: 252px auto 250px;
+  width: 464px;
+  height: 542px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 24px;
+  background: var(--color-5, #fff);
+}
+
+#result-card header {
+  position: relative;
+  top: -70px;
+  display: flex;
+  justify-content: space-between;
+  align-self: start;
+}
+
+#result-card header h1 {
+  color: var(--color-5, #fff);
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+#result-card img {
+  width: 238px;
+  aspect-ratio: calc(238 / 136);
+  margin-top: -24px;
+}
+
+#result-card h2 {
+  color: var(--color-15, #1d355d);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 72px;
+}
+
+#result-card p {
+  color: var(--color-15, #1d355d);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#result-card p span {
+  color: var(--color-16, #6fcf97);
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#result-card button {
+  width: 209px;
+  height: 62px;
+  border-radius: 12px;
+  border: 2px solid var(--color-15, #1d355d);
+  outline: none;
+  color: var(--color-15, #1d355d);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 71px;
+}
