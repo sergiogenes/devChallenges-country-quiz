@@ -43,7 +43,7 @@ header {
 
 .card-container ol li {
   counter-increment: item;
-  cursor: pointer;
+  cursor: url('../../assets/hand-pointer.svg'), pointer;
   width: 400px;
   height: 56px;
   border-radius: 12px;
@@ -95,13 +95,13 @@ header {
   position: relative;
   top: 24px;
   left: 316px;
-  cursor: pointer;
+  cursor: url('../../assets/hand-pointer.svg'), pointer;
 }
 
 .answered ol li {
   counter-increment: item;
   position: relative;
-  cursor: pointer;
+  cursor: url('../../assets/hand-pointer.svg');
   width: 400px;
   height: 56px;
   border-radius: 12px;
