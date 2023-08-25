@@ -3,6 +3,7 @@ import './App.css'
 import { CardQuiz } from './componentes/CardQuiz'
 import { FlagQuestion } from './componentes/FlagQuestion'
 import { ResultCard } from './componentes/ResultCard'
+import { Footer } from './componentes/Footer'
 
 interface Country {
   id: String
@@ -47,6 +48,7 @@ function App(): JSX.Element {
   return (
     <div className='app-container'>
       <ResultCard />
+      <Footer />
     </div>
   )
 }
