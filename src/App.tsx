@@ -5,29 +5,30 @@ import { CardQuiz } from './componentes/CardQuiz'
 interface Country {
   id: String
   flags: Flag
-  capital: Array<String>
+  capital: String[]
   name: String
 }
+
 type CountryWithoutName = Omit<Country, 'name'>
 
 interface CountryFromAPI extends CountryWithoutName {
   name: {
-    official: String
+    official: string
   }
 }
 
 interface Flag {
-  png: String
-  svg: String
-  alt: String
+  png: string
+  svg: string
+  alt: string
 }
 
-function App() {
-  const [countries, SetCountries] = useState<Country[]>([])
+function App(): JSX.Element {
+  const [countries, SetCountries] = useState<Array<Country>>([])
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=name,capital,flags')
-      .then((res) => res.json())
+      .then(async (res) => res.json())
       .then((data: CountryFromAPI[]) => {
         const allCountries = data.map((country) => {
           const id = self.crypto.randomUUID()
@@ -39,7 +40,7 @@ function App() {
 
   console.log('Countries ==>>', countries)
 
-  let id = self.crypto.randomUUID()
+  const id = self.crypto.randomUUID()
   console.log('id ==>>', id)
   return (
     <div className='app-container'>

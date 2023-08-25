@@ -3,11 +3,7 @@ export default {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended',
-    'eslint-config-prettier',
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended'],
   overrides: [
     {
       env: {
@@ -25,8 +21,5 @@ export default {
     project: './tsconfig.json',
   },
   plugins: ['react'],
-  rules: {
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-  },
+  rules: {},
 }
