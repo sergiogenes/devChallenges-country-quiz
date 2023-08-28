@@ -4,6 +4,7 @@ import { CardQuiz } from './componentes/CardQuiz'
 import { FlagQuestion } from './componentes/FlagQuestion'
 import { ResultCard } from './componentes/ResultCard'
 import { Footer } from './componentes/Footer'
+import { Home } from './componentes/Home'
 
 interface Country {
   id: String
@@ -47,7 +48,7 @@ function App(): JSX.Element {
   console.log('id ==>>', id)
   return (
     <div className='app-container'>
-      <ResultCard />
+      <Home />
       <Footer />
     </div>
   )
