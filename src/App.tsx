@@ -27,8 +27,21 @@ interface Flag {
   alt: string
 }
 
+export type GameState = 'begin' | 'gaming' | 'end'
+
 function App(): JSX.Element {
   const [countries, SetCountries] = useState<Array<Country>>([])
+  const [numbreOfQuestions, setNumberOfQuestios] = useState(0)
+  const [gameState, setGameState] = useState<GameState>('begin')
+
+  const handleNumberOfQuestios = (number: number) => {
+    setNumberOfQuestios(number)
+    console.log(number)
+  }
+
+  const handleChangeStateGame = (newGameState: GameState) => {
+    setGameState(newGameState)
+  }
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=name,capital,flags')
@@ -48,7 +61,17 @@ function App(): JSX.Element {
   console.log('id ==>>', id)
   return (
     <div className='app-container'>
-      <Home />
+      {gameState === 'begin' ? (
+        <Home
+          handleNumberOfQuestios={handleNumberOfQuestios}
+          numberOfQuestions={numbreOfQuestions}
+          changeStateGame={handleChangeStateGame}
+        />
+      ) : gameState === 'gaming' ? (
+        <CardQuiz />
+      ) : (
+        <ResultCard />
+      )}
       <Footer />
     </div>
   )
