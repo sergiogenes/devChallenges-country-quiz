@@ -1,4 +1,4 @@
-.flag-question {
+#flag-question {
   width: 464px;
   height: 629px;
   border-radius: 24px;
@@ -7,14 +7,14 @@
   position: relative;
 }
 
-header {
+#flag-question header {
   position: relative;
   top: -70px;
   display: flex;
   justify-content: space-between;
 }
 
-.flag-question header h1 {
+#flag-question header h1 {
   color: var(--color-5);
   font-size: 36px;
   font-style: normal;
@@ -23,14 +23,14 @@ header {
   text-transform: uppercase;
 }
 
-.flag-question > img {
+#flag-question > img {
   width: 84px;
   aspect-ratio: calc(84 / 54);
   position: relative;
   left: 32px;
   top: -44px;
 }
-.flag-question p {
+#flag-question p {
   color: var(--color-11);
   font-size: 24px;
   font-style: normal;
@@ -40,7 +40,7 @@ header {
   padding-left: 32px;
 }
 
-.flag-question ol {
+#flag-question ol {
   list-style: none;
   counter-reset: item;
   display: flex;
@@ -50,7 +50,7 @@ header {
   align-items: center;
 }
 
-.flag-question ol li {
+#flag-question ol li {
   counter-increment: item;
   cursor: url('../../assets/hand-pointer.svg'), pointer;
   width: 400px;
@@ -67,18 +67,18 @@ header {
   font-weight: 500;
   line-height: normal;
 }
-.flag-question ol li::before {
+#flag-question ol li::before {
   font-size: 24px;
   content: counter(item, upper-alpha) '';
   margin-left: 19px;
 }
 
-.flag-question ol li:hover {
+#flag-question ol li:hover {
   background: #f9a826;
   border: 2px solid #f9a826;
   color: #fff;
 }
-.flag-question button {
+#flag-question button {
   display: none;
   width: 116px;
   height: 56px;
@@ -95,12 +95,12 @@ header {
   line-height: normal;
 }
 
-.answered {
+#flag-question.answered {
   height: 673px;
   margin: 252px auto 119px;
 }
 
-.answered button {
+#flag-question.answered button {
   display: block;
   position: relative;
   top: 24px;
@@ -108,7 +108,7 @@ header {
   cursor: url('../../assets/hand-pointer.svg'), pointer;
 }
 
-.answered ol li {
+#flag-question.answered ol li {
   counter-increment: item;
   position: relative;
   cursor: url('../../assets/hand-pointer.svg');
@@ -128,19 +128,19 @@ header {
   justify-content: flex-start;
 }
 
-.answered ol li:hover {
+#flag-question.answered ol li:hover {
   background: #fff;
   border: 2px solid rgba(96, 102, 208, 0.7);
   color: rgba(96, 102, 208, 0.8);
 }
 
-.answered ol li.wrong {
+#flag-question.answered ol li.wrong {
   background: #ea8282;
   color: #fff;
   border: 2px solid #ea8282;
 }
 
-.answered ol li.wrong::after {
+#flag-question.answered ol li.wrong::after {
   font-family: 'Material Icons';
   content: '\e888';
   font-size: 24px;
@@ -148,13 +148,13 @@ header {
   right: 18px;
 }
 
-.answered ol li.rigth {
+#flag-question.answered ol li.rigth {
   background: var(--color-14, #60bf88);
   color: #fff;
   border: 2px solid var(--color-14, #60bf88);
 }
 
-.answered ol li.rigth::after {
+#flag-question.answered ol li.rigth::after {
   font-family: 'Material Icons';
   content: '\e2e6';
   font-size: 24px;

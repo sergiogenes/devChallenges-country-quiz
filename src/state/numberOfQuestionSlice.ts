@@ -4,6 +4,7 @@ import { NumberOfQuestions, type QuestionsState } from '../types'
 const initial_state: QuestionsState = {
   totalOfQuestions: 4,
   activeQuestion: 0,
+  correctAnswers: 0,
 }
 
 const numberOfQuestionsSlice = createSlice({
@@ -22,10 +23,16 @@ const numberOfQuestionsSlice = createSlice({
     ): QuestionsState => {
       return { ...state, activeQuestion: action.payload }
     },
+    addCorrectAnswers: (
+      state: QuestionsState,
+      _action: PayloadAction,
+    ): QuestionsState => {
+      return { ...state, correctAnswers: state.correctAnswers + 1 }
+    },
   },
 })
 
-export const { setNumberOfQuestions, setActiveQuestion } =
+export const { setNumberOfQuestions, setActiveQuestion, addCorrectAnswers } =
   numberOfQuestionsSlice.actions
 
 export default numberOfQuestionsSlice.reducer

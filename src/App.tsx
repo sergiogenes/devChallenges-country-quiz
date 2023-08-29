@@ -27,7 +27,7 @@ function App(): JSX.Element {
       .then((data: CountryFromAPI[]) => {
         const allCountries = data.map((country) => {
           const id = self.crypto.randomUUID()
-          return { ...country, id, name: country.name.official }
+          return { ...country, id, name: country.name.common }
         })
         SetCountries(allCountries)
       })
@@ -50,7 +50,7 @@ function App(): JSX.Element {
       ) : gameState === 'gaming' && question.type === 'capital' ? (
         <CardQuiz question={question} />
       ) : gameState === 'gaming' && question.type === 'flag' ? (
-        <FlagQuestion />
+        <FlagQuestion question={question} />
       ) : (
         <ResultCard />
       )}

@@ -3,6 +3,7 @@ export type NumberOfQuestions = 4 | 8 | 12
 export interface QuestionsState {
   totalOfQuestions: NumberOfQuestions
   activeQuestion: number
+  correctAnswers: number
 }
 
 export interface Question {
@@ -22,7 +23,7 @@ type CountryWithoutName = Omit<Country, 'name'>
 
 export interface CountryFromAPI extends CountryWithoutName {
   name: {
-    official: string
+    common: string
   }
 }
 
