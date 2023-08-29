@@ -8,7 +8,7 @@ export interface QuestionsState {
 export interface Question {
   type: 'capital' | 'flag'
   options: Array<Country>
-  win: number
+  win: String
 }
 
 export interface Country {

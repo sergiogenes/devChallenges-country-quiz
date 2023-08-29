@@ -25,6 +25,7 @@ const numberOfQuestionsSlice = createSlice({
   },
 })
 
-export const { setNumberOfQuestions } = numberOfQuestionsSlice.actions
+export const { setNumberOfQuestions, setActiveQuestion } =
+  numberOfQuestionsSlice.actions
 
 export default numberOfQuestionsSlice.reducer

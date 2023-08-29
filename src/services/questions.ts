@@ -16,11 +16,12 @@ export const generateQuestion = (countries: Array<Country>): Question => {
   const contry2 = countries[randomIndexs[1]]
   const contry3 = countries[randomIndexs[2]]
   const contry4 = countries[randomIndexs[3]]
+  const contriesOptions = [contry1, contry2, contry3, contry4]
   const win = randomNumber(3)
   return {
     type: randomType,
-    options: [contry1, contry2, contry3, contry4],
-    win,
+    options: contriesOptions,
+    win: contriesOptions[win].id,
   }
 }
 

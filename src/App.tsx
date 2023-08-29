@@ -39,7 +39,7 @@ function App(): JSX.Element {
       console.log('newQuestions  ==>>', newQuestion)
       dispatch(setQuestion(newQuestion))
     }
-  }, [activeQuestion, countries])
+  }, [activeQuestion, countries, activeQuestion])
 
   const id = self.crypto.randomUUID()
   console.log('id ==>>', id)
@@ -48,7 +48,7 @@ function App(): JSX.Element {
       {gameState === 'begin' ? (
         <Home />
       ) : gameState === 'gaming' && question.type === 'capital' ? (
-        <CardQuiz />
+        <CardQuiz question={question} />
       ) : gameState === 'gaming' && question.type === 'flag' ? (
         <FlagQuestion />
       ) : (
