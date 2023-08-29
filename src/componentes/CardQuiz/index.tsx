@@ -1,6 +1,9 @@
 import { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setActiveQuestion } from '../../state/numberOfQuestionSlice'
+import {
+  addCorrectAnswers,
+  setActiveQuestion,
+} from '../../state/numberOfQuestionSlice'
 import logo from '../../assets/undraw_adventure_4hum 1.svg'
 import { Question } from '../../types'
 import './index.css'
@@ -25,6 +28,7 @@ export const CardQuiz: React.FC<Props> = ({ question }) => {
       cardRef.current?.classList.add('answered')
       if (idSelected === question.win) {
         target.classList.add('rigth')
+        dispatch(addCorrectAnswers())
       } else {
         target.classList.add('wrong')
         const rigth = document.getElementById(
