@@ -5,43 +5,21 @@ import { FlagQuestion } from './componentes/FlagQuestion'
 import { ResultCard } from './componentes/ResultCard'
 import { Footer } from './componentes/Footer'
 import { Home } from './componentes/Home'
-
-interface Country {
-  id: String
-  flags: Flag
-  capital: String[]
-  name: String
-}
-
-type CountryWithoutName = Omit<Country, 'name'>
-
-interface CountryFromAPI extends CountryWithoutName {
-  name: {
-    official: string
-  }
-}
-
-interface Flag {
-  png: string
-  svg: string
-  alt: string
-}
-
-export type GameState = 'begin' | 'gaming' | 'end'
+import { useSelector } from 'react-redux'
+import { RootState } from './state/store'
+import type { Country, CountryFromAPI } from './types'
+import { generateQuestion } from './services/questions'
+import { useDispatch } from 'react-redux'
+import { setQuestion } from './state/questionSlice'
 
 function App(): JSX.Element {
   const [countries, SetCountries] = useState<Array<Country>>([])
-  const [numbreOfQuestions, setNumberOfQuestios] = useState(0)
-  const [gameState, setGameState] = useState<GameState>('begin')
-
-  const handleNumberOfQuestios = (number: number) => {
-    setNumberOfQuestios(number)
-    console.log(number)
-  }
-
-  const handleChangeStateGame = (newGameState: GameState) => {
-    setGameState(newGameState)
-  }
+  const gameState = useSelector((store: RootState) => store.gameState)
+  const activeQuestion = useSelector(
+    (store: RootState) => store.numberOfQuestions.activeQuestion,
+  )
+  const question = useSelector((store: RootState) => store.question)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=name,capital,flags')
@@ -55,20 +33,24 @@ function App(): JSX.Element {
       })
   }, [])
 
-  console.log('Countries ==>>', countries)
+  useEffect(() => {
+    if (countries.length) {
+      const newQuestion = generateQuestion(countries)
+      console.log('newQuestions  ==>>', newQuestion)
+      dispatch(setQuestion(newQuestion))
+    }
+  }, [activeQuestion, countries])
 
   const id = self.crypto.randomUUID()
   console.log('id ==>>', id)
   return (
     <div className='app-container'>
       {gameState === 'begin' ? (
-        <Home
-          handleNumberOfQuestios={handleNumberOfQuestios}
-          numberOfQuestions={numbreOfQuestions}
-          changeStateGame={handleChangeStateGame}
-        />
-      ) : gameState === 'gaming' ? (
+        <Home />
+      ) : gameState === 'gaming' && question.type === 'capital' ? (
         <CardQuiz />
+      ) : gameState === 'gaming' && question.type === 'flag' ? (
+        <FlagQuestion />
       ) : (
         <ResultCard />
       )}
