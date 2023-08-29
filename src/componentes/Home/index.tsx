@@ -1,18 +1,30 @@
 import './index.css'
 import worldMap from '../../assets/world-map.svg'
-import type { GameState } from '../../App'
+import { type NumberOfQuestions } from '../../types'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../state/store'
+import { useDispatch } from 'react-redux'
+import { setNumberOfQuestions } from '../../state/numberOfQuestionSlice'
+import { setGameState } from '../../state/gameStateSlice'
 
-interface Props {
-  handleNumberOfQuestios: (number: number) => void
-  numberOfQuestions: number
-  changeStateGame: (gameState: GameState) => void
-}
+export const Home: React.FC = () => {
+  const numberOfQuestions = useSelector(
+    (state: RootState) => state.numberOfQuestions.totalOfQuestions,
+  )
+  const dispatch = useDispatch()
 
-export const Home: React.FC<Props> = ({
-  numberOfQuestions,
-  handleNumberOfQuestios,
-  changeStateGame,
-}) => {
+  const handleNumberOfQuestios = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
+    dispatch(
+      setNumberOfQuestions(Number(event.target.value) as NumberOfQuestions),
+    )
+  }
+
+  const changeStateGame = () => {
+    dispatch(setGameState('gaming'))
+  }
+
   return (
     <div id='home'>
       <header>
@@ -30,14 +42,14 @@ export const Home: React.FC<Props> = ({
           name='numberOfQuestions'
           id='numberOfQuestions'
           value={numberOfQuestions}
-          onChange={(e) => handleNumberOfQuestios(Number(e.target.value))}
+          onChange={handleNumberOfQuestios}
         >
           <option value='4'>4</option>
           <option value='8'>8</option>
           <option value='12'>12</option>
         </select>
       </label>
-      <button onClick={() => changeStateGame('gaming')}>Start Game</button>
+      <button onClick={changeStateGame}>Start Game</button>
     </div>
   )
 }

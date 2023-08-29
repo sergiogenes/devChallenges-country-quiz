@@ -3,7 +3,7 @@
   height: 629px;
   border-radius: 24px;
   background: var(--color-5, #fff);
-  margin: 252px auto 277px;
+  margin: 252px auto 163px;
   position: relative;
 }
 
@@ -97,6 +97,7 @@ header {
 
 .answered {
   height: 673px;
+  margin: 252px auto 119px;
 }
 
 .answered button {
