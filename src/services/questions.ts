@@ -9,7 +9,7 @@ export const generateQuestion = (countries: Array<Country>): Question => {
     const index = randomNumber(length - 1)
     if (
       !randomIndexs.includes(index) &&
-      countries[index].capital &&
+      countries[index].capital.length &&
       countries[index].flags.svg
     ) {
       randomIndexs.push(index)

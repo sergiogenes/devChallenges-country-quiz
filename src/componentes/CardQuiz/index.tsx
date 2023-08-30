@@ -17,7 +17,7 @@ type Props = {
 export const CardQuiz: React.FC<Props> = ({ question }) => {
   const [selected, setSelected] = useState(false)
   const capital = question.options.find((option) => option.id === question.win)
-    ?.capital
+    ?.capital[0]
   const dispatch = useDispatch()
   const cardRef = useRef<HTMLDivElement>(null)
 
