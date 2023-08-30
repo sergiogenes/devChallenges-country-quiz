@@ -8,8 +8,8 @@ import { resetQuestionState } from '../../state/numberOfQuestionSlice'
 
 export const ResultCard = () => {
   const dispatch = useDispatch()
-  const correctAnswers = useSelector(
-    (state: RootState) => state.numberOfQuestions.correctAnswers,
+  const { correctAnswers, totalOfQuestions } = useSelector(
+    (state: RootState) => state.numberOfQuestions,
   )
 
   const handleRestarGame = () => {
@@ -25,7 +25,8 @@ export const ResultCard = () => {
       <img src={winner} alt='imagen de una copa' />
       <h2>Results</h2>
       <p>
-        You got <span>{correctAnswers}</span> correct answers
+        You got <span> {` ${correctAnswers}/${totalOfQuestions} `} </span>{' '}
+        correct answers
       </p>
       <button onClick={handleRestarGame}>Try again</button>
     </div>
