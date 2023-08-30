@@ -36,13 +36,10 @@ function App(): JSX.Element {
   useEffect(() => {
     if (countries.length) {
       const newQuestion = generateQuestion(countries)
-      console.log('newQuestions  ==>>', newQuestion)
       dispatch(setQuestion(newQuestion))
     }
   }, [activeQuestion, countries, activeQuestion])
 
-  const id = self.crypto.randomUUID()
-  console.log('id ==>>', id)
   return (
     <div className='app-container'>
       {gameState === 'begin' ? (

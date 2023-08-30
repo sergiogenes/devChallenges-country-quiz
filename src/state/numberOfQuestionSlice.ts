@@ -29,10 +29,17 @@ const numberOfQuestionsSlice = createSlice({
     ): QuestionsState => {
       return { ...state, correctAnswers: state.correctAnswers + 1 }
     },
+    resetQuestionState: (): QuestionsState => {
+      return initial_state
+    },
   },
 })
 
-export const { setNumberOfQuestions, setActiveQuestion, addCorrectAnswers } =
-  numberOfQuestionsSlice.actions
+export const {
+  setNumberOfQuestions,
+  setActiveQuestion,
+  addCorrectAnswers,
+  resetQuestionState,
+} = numberOfQuestionsSlice.actions
 
 export default numberOfQuestionsSlice.reducer
