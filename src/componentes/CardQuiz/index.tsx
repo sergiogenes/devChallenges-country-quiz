@@ -49,7 +49,9 @@ export const CardQuiz: React.FC<Props> = ({ question }) => {
   const handleNextQuestion = (
     _e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void => {
-    console.log('active Question', activeQuestion)
+    document.querySelector('answered')?.classList.remove('answered')
+    document.querySelector('.rigth')?.classList.remove('rigth')
+    document.querySelector('.wrong')?.classList.remove('wrong')
     if (activeQuestion + 1 < totalOfQuestions) {
       dispatch(setActiveQuestion(activeQuestion + 1))
       setSelected(false)

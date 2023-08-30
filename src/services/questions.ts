@@ -7,11 +7,15 @@ export const generateQuestion = (countries: Array<Country>): Question => {
 
   while (randomIndexs.length < 4) {
     const index = randomNumber(length - 1)
-    if (!randomIndexs.includes(index)) {
+    if (
+      !randomIndexs.includes(index) &&
+      countries[index].capital &&
+      countries[index].flags.svg
+    ) {
       randomIndexs.push(index)
     }
   }
-  console.log('random Indexs', randomIndexs)
+
   const contry1 = countries[randomIndexs[0]]
   const contry2 = countries[randomIndexs[1]]
   const contry3 = countries[randomIndexs[2]]
